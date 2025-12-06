@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store/slices/authSlice';
+import { clearCart } from '../store/slices/cartSlice';
 import { formatPrice } from '../utils/formatPrice';
 import './Navbar.css';
 
@@ -13,6 +14,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    dispatch(clearCart()); // Clear cart when logging out
     navigate('/');
   };
 
